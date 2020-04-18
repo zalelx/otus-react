@@ -1,31 +1,37 @@
 {
   "env": {
     "browser": true,
-    "node": true,
     "es2020": true,
     "jest": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "ecmaVersion": 2020,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "."
   },
   "plugins": [
     "react",
+    "react-hooks",
+    "promise",
+    "optimize-regex",
+    "sonarjs",
     "@typescript-eslint"
   ],
   "rules": {
+    "optimize-regex/optimize-regex": "warn"
   }
 }
