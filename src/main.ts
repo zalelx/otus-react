@@ -1,3 +1,3 @@
-import sum from './sum'
+import sum from "./sum";
 
-console.log(sum(1, 34));
+console.log(sum(1, 36790));
