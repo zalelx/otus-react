@@ -6,8 +6,14 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.prod.js",
-    "dev-server": "webpack-dev-server --open --config webpack.dev.js",
-    "lint": "eslint src --ext .js,.ts,.tsx,.jsx"
+    "dev-server": "webpack-dev-server --open --config webpack.dev.js --hot",
+    "lint": "eslint src --ext .js,.ts,.tsx,.jsx",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
+    "check": "npm run lint && npm test && npm run test:loki",
+    "loki:update": "npx loki update",
+    "loki:approve": "npx loki approve"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
@@ -16,13 +22,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run check"
     }
   },
   "lint-staged": {
     "./src/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "npx lint"
+      "npx prettier --write"
     ]
   },
   "devDependencies": {
@@ -33,6 +38,14 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@storybook/source-loader": "^5.3.18",
+    "@types/enzyme": "^3.10.5",
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
@@ -42,6 +55,8 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-optimize-regex": "^1.1.7",
@@ -54,6 +69,7 @@
     "husky": "^4.2.5",
     "jest": "^25.3.0",
     "lint-staged": "^10.1.5",
+    "loki": "^0.20.3",
     "prettier": "2.0.2",
     "raw-loader": "^4.0.1",
     "source-map-loader": "^0.2.4",
@@ -73,5 +89,20 @@
   "bugs": {
     "url": "https://github.com/zalelx/otus-react/issues"
   },
-  "homepage": "https://github.com/zalelx/otus-react#readme"
+  "homepage": "https://github.com/zalelx/otus-react#readme",
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  }
 }

@@ -1,9 +1,10 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const path = require('path');
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index.js',
@@ -12,7 +13,12 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: ['node_modules'],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
 
   module: {
     rules: [
