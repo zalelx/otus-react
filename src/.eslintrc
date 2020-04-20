@@ -32,6 +32,8 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "optimize-regex/optimize-regex": "warn"
+    "optimize-regex/optimize-regex": "warn",
+    "react/prop-types": "off",
+    "no-unused-vars": "off"
   }
 }
