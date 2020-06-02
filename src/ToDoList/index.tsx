@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ToDoItem } from "./ToDoItem";
+import { css } from "@emotion/core";
 
 interface Props {
   toDoItems: Array<Task>;
@@ -13,6 +14,12 @@ interface Task {
 interface State {
   toDoItems: Array<Task>;
 }
+
+const style = css({
+  display: "grid",
+  backgroundColor: "red",
+  position: "relative",
+});
 
 export class ToDoList extends Component<Props, State> {
   constructor(props: Props) {
@@ -34,7 +41,7 @@ export class ToDoList extends Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div css={style}>
         <div>
           {this.state.toDoItems.map((value: Task, index: number) => (
             <ToDoItem checked={value.checked} task={value.text} key={index} />
