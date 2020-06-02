@@ -1,7 +1,7 @@
 import { ToDoList } from "./index";
 import { shallow, ShallowWrapper } from "enzyme";
 import React from "react";
-import { ToDoItem } from "./to-do-item";
+import { ToDoItem } from "./ToDoItem";
 
 let wrapper: ShallowWrapper<
   React.Component["props"],
@@ -33,7 +33,7 @@ describe("<ToDoList/> rendering", () => {
 describe("<ToDoList/> behavior", () => {
   it("should add ToDoItem when add button is clicked", () => {
     expect(wrapper.find(ToDoItem)).toHaveLength(1);
-    wrapper.find("button").first().props().onClick(null);
+    wrapper.find("button").simulate("click");
     expect(wrapper.find(ToDoItem)).toHaveLength(2);
   });
 });

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ToDoItem } from "./to-do-item";
+import { ToDoItem } from "./ToDoItem";
 
 interface Props {
   toDoItems: Array<Task>;
@@ -24,9 +24,10 @@ export class ToDoList extends Component<Props, State> {
 
   createTask = () => {
     this.setState(({ toDoItems }) => {
-      toDoItems.push({ checked: false, text: "abc" });
+      const newItems = [...toDoItems];
+      newItems.push({ checked: false, text: "abc" });
       return {
-        toDoItems: toDoItems,
+        toDoItems: newItems,
       };
     });
   };
