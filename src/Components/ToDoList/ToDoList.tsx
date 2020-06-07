@@ -38,6 +38,16 @@ export class ToDoList extends Component<Props, State> {
       });
   };
 
+  removeItem = (index: number) => () => {
+    this.setState(({ toDoItems }) => {
+      const newItems = [...toDoItems];
+      newItems.splice(index, 1);
+      return {
+        toDoItems: newItems,
+      };
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -49,6 +59,7 @@ export class ToDoList extends Component<Props, State> {
                 task={value.text}
                 key={index}
                 onCheck={this.checkItem(index)}
+                onRemove={this.removeItem(index)}
               />
             );
           })}

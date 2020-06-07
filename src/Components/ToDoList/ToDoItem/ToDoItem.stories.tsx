@@ -11,8 +11,9 @@ storiesOf("ToDo item", module)
     return (
       <ToDoItem
         checked={boolean("crossedOut", false)}
-        onCheck={action("onCrossOut action")}
+        onCheck={action("onCheck action")}
         task={task}
+        onRemove={action("onRemove action")}
       />
     );
   });

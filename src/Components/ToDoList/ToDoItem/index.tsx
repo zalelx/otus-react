@@ -5,6 +5,7 @@ interface ToDoItemProps {
   checked: boolean;
   task: string;
   onCheck: () => void;
+  onRemove: () => void;
 }
 
 const style = (checked: boolean) => {
@@ -13,11 +14,16 @@ const style = (checked: boolean) => {
   });
 };
 
-export const ToDoItem: FC<ToDoItemProps> = ({ task, onCheck, checked }) => (
+export const ToDoItem: FC<ToDoItemProps> = ({
+  task,
+  onCheck,
+  checked,
+  onRemove,
+}) => (
   <div>
     <span css={style(checked)} onClick={onCheck}>
       {task}
     </span>
-    <button>X</button>
+    <button onClick={onRemove}>X</button>
   </div>
 );
