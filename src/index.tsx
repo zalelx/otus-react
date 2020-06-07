@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import { ToDoList } from "./ToDoList";
-import { css } from "@emotion/core";
+import { App } from "./Components/App";
 
-ReactDOM.render(<ToDoList toDoItems={[]} />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));

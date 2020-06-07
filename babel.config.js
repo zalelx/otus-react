@@ -7,18 +7,14 @@ module.exports = {
   ],
   env: {
     production: {
-      plugins: [
-        "emotion",
-        "@babel/proposal-class-properties",
-        "@babel/proposal-object-rest-spread",
-      ],
+      plugins: ["emotion"],
     },
     development: {
-      plugins: [
-        ["emotion", { sourceMap: true }],
-        "@babel/proposal-class-properties",
-        "@babel/proposal-object-rest-spread",
-      ],
+      plugins: [["emotion", { sourceMap: true }]],
     },
   },
+  plugins: [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+  ],
 };

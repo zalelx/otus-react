@@ -1,7 +1,7 @@
 import { ToDoList } from "./index";
 import { shallow, ShallowWrapper } from "enzyme";
 import React from "react";
-import { ToDoItem } from "./ToDoItem";
+import renderer from "react-test-renderer";
 
 let wrapper: ShallowWrapper<
   React.Component["props"],
@@ -22,7 +22,7 @@ beforeEach(() => {
   );
 });
 
-describe("<ToDoList/> rendering", () => {
+/*describe("<Components.ToDoList/> rendering", () => {
   it("renders correctly", () => {
     expect(wrapper).toMatchSnapshot();
   });
@@ -30,10 +30,14 @@ describe("<ToDoList/> rendering", () => {
     expect(wrapper.find("button")).toHaveLength(1);
   });
 });
-describe("<ToDoList/> behavior", () => {
-  it("should add ToDoItem when add button is clicked", () => {
-    expect(wrapper.find(ToDoItem)).toHaveLength(1);
-    wrapper.find("button").simulate("click");
-    expect(wrapper.find(ToDoItem)).toHaveLength(2);
+describe("<Components.ToDoList/> behavior", () => {
+
+});*/
+
+describe("render with react renderer", () => {
+  it("simple", () => {
+    const newVar = renderer.create(<ToDoList toDoItems={[]} />);
+
+    expect(newVar).toMatchSnapshot();
   });
 });

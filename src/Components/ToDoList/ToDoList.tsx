@@ -1,19 +1,7 @@
 import React, { Component } from "react";
 import { ToDoItem } from "./ToDoItem";
 import { css } from "@emotion/core";
-
-interface Props {
-  toDoItems: Array<Task>;
-}
-
-interface Task {
-  checked: boolean;
-  text: string;
-}
-
-interface State {
-  toDoItems: Array<Task>;
-}
+import { Props, State, Task } from "./index";
 
 const style = css({
   display: "grid",
@@ -41,14 +29,14 @@ export class ToDoList extends Component<Props, State> {
 
   render() {
     return (
-      <div css={style}>
+      <React.Fragment>
         <div>
           {this.state.toDoItems.map((value: Task, index: number) => (
             <ToDoItem checked={value.checked} task={value.text} key={index} />
           ))}
         </div>
         <button onClick={this.createTask}>Add</button>
-      </div>
+      </React.Fragment>
     );
   }
 }
