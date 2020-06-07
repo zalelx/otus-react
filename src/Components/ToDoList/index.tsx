@@ -3,6 +3,7 @@ import { ToDoList } from "./ToDoList";
 
 interface Props {
   fetchTasks: () => Promise<Array<Task>>;
+  updateTasks: (tasks: Array<Task>) => Promise<void>;
 }
 
 interface Task {

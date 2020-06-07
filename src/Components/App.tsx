@@ -19,6 +19,14 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
       }, 1500);
     });
   };
+  const updateTasks = (tasks: Array<Task>): Promise<void> => {
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        console.log("updated tasks: ", tasks);
+        resolve();
+      }, 2000);
+    });
+  };
 
   return (
     <Fragment>
@@ -26,7 +34,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
       <Header />
       <Container>
         <Box my={2}>
-          <ToDoList fetchTasks={fetchTasks} />
+          <ToDoList fetchTasks={fetchTasks} updateTasks={updateTasks} />
         </Box>
       </Container>
     </Fragment>

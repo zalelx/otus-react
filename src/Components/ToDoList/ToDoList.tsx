@@ -11,10 +11,12 @@ const style = css({
 
 export class ToDoList extends Component<Props, State> {
   private fetchTasks: () => Promise<Array<Task>>;
+  private updateTasks: (tasks: Array<Task>) => Promise<void>;
 
   constructor(props: Props) {
     super(props);
     this.fetchTasks = props.fetchTasks;
+    this.updateTasks = props.updateTasks;
     this.state = {
       toDoItems: [],
     };
@@ -27,7 +29,16 @@ export class ToDoList extends Component<Props, State> {
           toDoItems: [...newTasks],
         })
       )
-      .catch((error) => console.log(error));
+      .catch((error) => console.error("error during task fetch", error));
+  };
+
+  componentDidUpdate = (
+    prevProps: Readonly<Props>,
+    prevState: Readonly<State>
+  ) => {
+    this.updateTasks(prevState.toDoItems).catch((error) =>
+      console.error("error during task update ", error)
+    );
   };
 
   createTask = () => {
