@@ -4,7 +4,7 @@ import { Header } from "./Layouts";
 import { Box, Container, CssBaseline, Toolbar } from "@material-ui/core";
 
 export const App: FC<{}> = (props) => {
-  const initItems = [...new Array(36)].map((value, index) => ({
+  const initItems = [...new Array(3)].map((value, index) => ({
     checked: false,
     text: `${index} Cras mattis consectetur purus sit amet fermentum.
 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
