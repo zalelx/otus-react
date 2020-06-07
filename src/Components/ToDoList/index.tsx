@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ToDoList } from "./ToDoList";
 
 interface Props {
-  toDoItems: Array<Task>;
+  fetchTasks: () => Promise<Array<Task>>;
 }
 
 interface Task {

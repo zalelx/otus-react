@@ -10,12 +10,25 @@ const style = css({
 });
 
 export class ToDoList extends Component<Props, State> {
+  private fetchTasks: () => Promise<Array<Task>>;
+
   constructor(props: Props) {
     super(props);
+    this.fetchTasks = props.fetchTasks;
     this.state = {
-      toDoItems: props.toDoItems,
+      toDoItems: [],
     };
   }
+
+  componentDidMount = () => {
+    this.fetchTasks()
+      .then((newTasks) =>
+        this.setState({
+          toDoItems: [...newTasks],
+        })
+      )
+      .catch((error) => console.log(error));
+  };
 
   createTask = () => {
     this.setState(({ toDoItems }) => {
