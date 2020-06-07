@@ -1,13 +1,13 @@
-const custom = require('../webpack.dev');
-const webpack = require('webpack');
-const path = require('path');
+const custom = require("../webpack.dev");
+const webpack = require("webpack");
+const path = require("path");
 
 module.exports = {
-  stories: ['../src/**/*.stories.tsx'],
+  stories: ["../src/**/*.stories.tsx"],
   addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-knobs/register',
+    "@storybook/addon-actions",
+    "@storybook/addon-links",
+    "@storybook/addon-knobs/register",
   ],
 
   webpackFinal: (config) => {
@@ -17,11 +17,11 @@ module.exports = {
       test: /\.stories\.tsx$/,
       loaders: [
         {
-          loader: require.resolve('@storybook/source-loader'),
-          options: { parser: 'typescript' },
+          loader: require.resolve("@storybook/source-loader"),
+          options: { parser: "typescript" },
         },
       ],
-      enforce: 'pre',
+      enforce: "pre",
     });
     return {
       ...config,

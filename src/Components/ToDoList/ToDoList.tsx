@@ -27,13 +27,31 @@ export class ToDoList extends Component<Props, State> {
     });
   };
 
+  checkItem = (index: number) => {
+    return () =>
+      this.setState(({ toDoItems }) => {
+        const newItems = [...toDoItems];
+        newItems[index].checked = !newItems[index].checked;
+        return {
+          toDoItems: newItems,
+        };
+      });
+  };
+
   render() {
     return (
       <React.Fragment>
         <div>
-          {this.state.toDoItems.map((value: Task, index: number) => (
-            <ToDoItem checked={value.checked} task={value.text} key={index} />
-          ))}
+          {this.state.toDoItems.map((value: Task, index: number) => {
+            return (
+              <ToDoItem
+                checked={value.checked}
+                task={value.text}
+                key={index}
+                onCheck={this.checkItem(index)}
+              />
+            );
+          })}
         </div>
         <button onClick={this.createTask}>Add</button>
       </React.Fragment>
