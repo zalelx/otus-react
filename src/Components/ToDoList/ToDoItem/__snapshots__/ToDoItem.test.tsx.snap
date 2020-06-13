@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render ToDoItem with different renderers with enzyme renderer 1`] = `
+<div>
+  "abc"
+  <button
+    onClick={[MockFunction]}
+  >
+    X
+  </button>
+</div>
+`;
+
+exports[`render ToDoItem with different renderers with react renderer 1`] = `
+.emotion-0 {
+  -webkit-text-decoration: line-through;
+  text-decoration: line-through;
+}
+
+<div>
+  <span
+    className="emotion-0"
+    onClick={[MockFunction]}
+  >
+    abc
+  </span>
+  <button
+    onClick={[MockFunction]}
+  >
+    X
+  </button>
+</div>
+`;

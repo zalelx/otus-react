@@ -1,3 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Components.ToDoList/> rendering renders correctly 1`] = `ShallowWrapper {}`;
+exports[`<Components.ToDoList/> rendering renders correctly 1`] = `
+<Fragment>
+  <div>
+    <ToDoItem
+      checked={true}
+      key="0"
+      onCheck={[Function]}
+      onRemove={[Function]}
+      task="asfd"
+    />
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    Add
+  </button>
+</Fragment>
+`;

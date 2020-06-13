@@ -74,7 +74,7 @@ export class ToDoList extends Component<Props, State> {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <div>
           {this.state.toDoItems.map((value: Task, index: number) => {
             return (
@@ -89,7 +89,7 @@ export class ToDoList extends Component<Props, State> {
           })}
         </div>
         <button onClick={this.createTask}>Add</button>
-      </React.Fragment>
+      </>
     );
   }
 }
